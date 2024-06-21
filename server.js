@@ -51,7 +51,7 @@ app.post("/Login", async (req, res) => {
 app.post("/SignUp", async (req, res) => {
 
     try {
-        const { name, email, password } = req.body
+        const { name, email, password,phnno } = req.body
         console.log(req.body);
         const collection = client.db("Users").collection("UserAccs");
         const filterData = await collection.find({ "email": email }).toArray()
@@ -71,7 +71,8 @@ app.post("/SignUp", async (req, res) => {
                 {
                     name: name,
                     email: email,
-                    password: password
+                    password: password,
+                    phnno:phnno
                 }
             )
             response = {
